@@ -57,13 +57,17 @@ def home():
         ham_conf = probs[0] * 100
         label = get_label_and_meter(spam_conf, ham_conf)
 
+        # 
         result = {
             "message": msg,
             "prediction": label,
-            "spam_conf": f"{spam_conf:.2f}%",
-            "ham_conf": f"{ham_conf:.2f}%"
-           
+            "spam_conf": round(spam_conf, 2),
+            "ham_conf": round(ham_conf, 2)
         }
+
+
+       
+
         return render_template("index.html", result=result)
 
     return render_template("index.html", result=None)

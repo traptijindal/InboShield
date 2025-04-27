@@ -5,7 +5,7 @@
   <title>InboShield</title>
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Poppins', sans-se rif;
       background: #0D0D0D; /* deep black */
       color: #FFFFFF; /* pure white */
       text-align: center;
@@ -109,7 +109,7 @@
     <button type="submit">Check</button>
   </form>
 
-  {% if result %}
+  <!-- {% if result %}
     <div class="result-section">
       <h2>📩 Message:</h2>
       <p>{{ result.message }}</p>
@@ -117,12 +117,25 @@
       <p><strong>→ Prediction:</strong> {{ result.prediction }}</p>
 
       <div class="progress-container">
-        <div class="progress-ham" style="width: {{ result.ham_conf }};">Ham {{ result.ham_conf }}</div>
-        <div class="progress-spam" style="width: {{ result.spam_conf }};">Spam {{ result.spam_conf }}</div>
+        <div class="progress-ham" style="width: {{ result.ham_conf }}%;">Ham {{ result.ham_conf | round(2) }}%</div>
+        <div class="progress-spam" style="width: {{ result.spam_conf }}%;">Spam {{ result.spam_conf | round(2) }}%</div>
       </div>
+      
 
       <p class="gauge-text"><strong>Spam Confidence:</strong> {{ result.spam_conf }}</p>
     </div>
-  {% endif %}
+  {% endif %} -->
+  {% if result %}
+  <div class="result-section">
+    <h2>📩 Message:</h2>
+    <p>{{ result.message }}</p>
+
+    <p><strong>→ Prediction:</strong> {{ result.prediction }}</p>
+    <p><strong>Ham Confidence:</strong> {{ result.ham_conf }}%</p>
+      <p><strong>Spam Confidence:</strong> {{ result.spam_conf }}%</p>
+
+  </div>
+{% endif %}
+
 </body>
 </html>
