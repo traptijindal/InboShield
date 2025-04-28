@@ -2,12 +2,16 @@ from flask import Flask, render_template, request
 import pickle
 import numpy as np
 import os
-from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
 import nltk
 import string
+from nltk.corpus import stopwords
+from nltk.stem.porter import PorterStemmer
+
+nltk.download('punkt')
+nltk.download('stopwords')
 
 app = Flask(__name__)
+
 model_path = os.path.join("model", "model.pkl")
 vectorizer_path = os.path.join("model", "vectorizer.pkl")
 
